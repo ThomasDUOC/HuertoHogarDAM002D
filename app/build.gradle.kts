@@ -81,4 +81,8 @@ dependencies {
     // Debug
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+
+    // Para Database
+    implementation("androidx.sqlite:sqlite:2.6.1")
+    implementation("androidx.room:room-runtime:2.6.1")
 }
