@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import com.g001.huertohogar_dam002d.data.Producto
 
 class CatalogoViewModel : ViewModel() {
     private val _productos = MutableStateFlow<List<Producto>>(emptyList())
@@ -14,12 +15,12 @@ class CatalogoViewModel : ViewModel() {
 
     fun cargarDemo() {
         _productos.value = listOf(
-            Producto(id = "p1", nombre = "Silla Eames", descripcion = "Clásica", precio = 39990.0, disponible = true, stock = 5),
-            Producto(id = "p2", nombre = "Mesa Roble", descripcion = "160x90", precio = 129990.0, disponible = true, stock = 2)
+            Producto(id = 1, nombre = "Silla Eames", descripcion = "Clásica", detalle = "Test", precio = 39990.0, disponible = true, stock = 5),
+            Producto(id = 2, nombre = "Mesa Roble", descripcion = "160x90", detalle = "Test2", precio = 129990.0, disponible = true, stock = 2)
         )
         _servicios.value = listOf(
-            Servicio(id = "s1", nombre = "Arriendo de herramientas", descripcion = "Por día", precio = 9990.0),
-            Servicio(id = "s2", nombre = "Instalación a domicilio", descripcion = "Zona RM", precio = 19990.0)
+            Servicio(id = 1, nombre = "Arriendo de herramientas", descripcion = "Por día", precio = 9990.0),
+            Servicio(id = 2, nombre = "Instalación a domicilio", descripcion = "Zona RM", precio = 19990.0)
         )
     }
 
