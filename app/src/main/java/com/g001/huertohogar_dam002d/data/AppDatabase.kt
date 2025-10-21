@@ -4,16 +4,17 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import kotlin.also
-import kotlin.jvm.java
 
 @Database(
-    entities = [Producto::class],
-    version = 1,
+    entities = [Producto::class, User::class, CarritoItem::class, Pedido::class, PedidoItem::class],
+    version = 3,
     exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {
     abstract fun productDao(): ProductoDao
+    abstract fun userDao(): UserDao
+    abstract fun carritoDao(): CarritoDao
+    abstract fun pedidoDao(): PedidoDao
 
     companion object {
         @Volatile
@@ -25,7 +26,7 @@ abstract class AppDatabase : RoomDatabase() {
                     context.applicationContext,
                     AppDatabase::class.java,
                     "productos.db"
-                ).build().also { INSTANCE = it }
+                ).fallbackToDestructiveMigration().build().also { INSTANCE = it }
             }
     }
 }
